@@ -14,13 +14,20 @@ while True:
 	time.sleep(5)                                  # wait every 5 seconds
 	random_value = random.randint(1, 100)
 
+	# Data/Hora atual
 	msg = str.encode("TIME " + time.asctime())
+
+	# Obter um número aleatório
 	msg2 = str.encode("RANDOM_VALUE " + str(random_value))
+	
+	# Obter um valor estático
 	msg3 = str.encode("STATIC_VALUE " + static_message)
 
+	# Um contador de quantas mensagens o publisher enviou
 	count_msg = count_msg + 1
 	msg4 = str.encode("COUNTER_MESSAGE " + str(count_msg))
 	
+	# Obter uuid
 	msg5 = str.encode("GET_UUID " + str(uuid.uuid4()))
 
 	s.send(msg) # publish the TIME
